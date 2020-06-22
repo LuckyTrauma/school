@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Urazove poistenie</title>
+</head>
+<body>
+<h1>Urazove poistenie</h1>
+
+
+    <p th:text="'ID zmluvy: ' + ${insurance.InsuranceID}"></p>
+<br>
+    <p th:text="'Datum vzniku: ' + ${insurance.creationDate}"></p>
+<br>
+    <p th:text="'ID poistovatela: ' + ${insurance.InsurerID}"></p>
+<br>
+    <p th:text="'Datum zaciatku platnosti poistenia: ' + ${insurance.EffectiveBy}"></p>
+<br>
+    <p th:text="'Datum konca platnosti poistenia: ' + ${insurance.ExpirationDate}"></p>
+<br>
+    <p th:text="'Vyska poistky: ' + ${insurance.value}"></p>
+<br>
+    <p th:text="'Mesacna splatka: ' + ${insurance.monthlyFee}"></p>
+<br>
+    <p th:text="'ID poistenej osoby: ' + ${insurance.Insured}"></p>
+<br>
+    <p th:text="'Uraz -> Trvale nasledky: ' + ${insurance.PermanentInjury}"></p>
+<br>
+    <p th:text="'Uraz -> Smrt: ' + ${insurance.DeathInjury}"></p>
+<br>
+    <p th:text="'Uraz -> Hospitalizacia: ' + ${insurance.DailyHosp}"></p>
+<br>
+    <p th:text="'Uzmná platnost: ' + ${insurance.ValidityArea.getName()}"></p>
+<br>
+<a th:href="'/products/edit/' + ${insurance.InsurerID} + '/' + ${insurance.InsuranceID}">Upraviť zmluvu</a>
+</body>
+</html>

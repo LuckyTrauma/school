@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail klienta</title>
+</head>
+<body>
+<h1>Klient</h1>
+
+<ul>
+    <li th:text="'ID: ' + ${client.clientID}"></li>
+    <li th:text="'Meno: ' + ${client.name}"></li>
+    <li th:text="'Priezvisko: ' + ${client.surname}"></li>
+    <li th:text="'Rodne cilo: ' + ${client.birth}"></li>
+    <li th:text="'email: ' + ${client.email}"></li>
+    <li th:text="'Adresa trvaleho pobytu: ' + ${client.getAddress()}"></li>
+    <li th:text="'Korespondencna adresa: ' + ${client.getCorrespAddress()}"></li>
+</ul>
+
+<a th:href="'/client/edit/' + ${client.clientID}">Upraviť používateľa</a>
+
+<h3>Uzavreté zmluvy:</h3>
+<a th:href="'/products/add/' + ${client.clientID}">Nová zmluva</a>
+<table>
+    <thead>
+    <tr>
+        <th>Datum vzniku</th>
+        <th>Datum začiatku poistenia</th>
+        <th>Datum konca poistenia</th>
+        <th>Vyska mesacnej splatky</th>
+        <th>Detail</th>
+        <th>Upravit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="insurance: ${insurances}">
+        <td th:text="${insurance.creationDate}"></td>
+        <td th:text="${insurance.EffectiveBy}"></td>
+        <td th:text="${insurance.ExpirationDate}"></td>
+        <td th:text="${insurance.monthlyFee} + '€'"></td>
+        <td><a th:href="'/products/detail/' + ${client.clientID} + '/' + ${insurance.InsuranceID}">Detail</a></td>
+        <td><a th:href="'/products/edit/' + ${client.clientID} + '/' + ${insurance.InsuranceID}">Upraviť</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

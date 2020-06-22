@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoznam komponentov</title>
+</head>
+<body>
+<h1>Zoznam komponentov</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nazov</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="komponent : ${listKomponentov}">
+        <td th:text="${komponent.idKomponentu}"></td>
+        <td th:text="${komponent.nazov}"></td>
+        <td><a th:href="'/komponent/detail/' + ${komponent.idKomponentu}">Detail</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="'/vozidlo/list'">Zoznam vozidiel</a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Poistenie domacnosti</title>
+</head>
+<body>
+<h1>Poistenie domacnosti</h1>
+
+
+<p th:text="'ID zmluvy: ' + ${insurance.InsuranceID}"></p>
+<br>
+<p th:text="'ID poistovatela: ' + ${insurance.InsurerID}"></a></p>
+<br>
+<p th:text="'Datum zaciatku platnosti poistenia: ' + ${insurance.EffectiveBy}"></p>
+<br>
+<p th:text="'Datum konca platnosti poistenia: ' + ${insurance.ExpirationDate}"></p>
+<br>
+<p th:text="'Vyska poistky: ' + ${insurance.value}"></p>
+<br>
+<p th:text="'Mesacna splatka: ' + ${insurance.monthlyFee}"></p>
+<br>
+<p th:text="'Typ nehnutelnosti: ' + ${insurance.HouseType.getName()}"></p>
+<br>
+<p th:text="'Adresa nehnutelnosti: ' + ${insurance.Address}"></p>
+<br>
+<p th:text="'Hodnota nehnutelnosti ' + ${insurance.HouseValue}"></p>
+<br>
+    <p th:text="'Hodnota zariadenia domácnosti: ' + ${insurance.EquipmentValue}"></p>
+
+<a th:href="'/products/edit/' + ${insurance.InsurerID} + '/' + ${insurance.InsuranceID}">Upraviť zmluvu</a>
+</body>
+</html>

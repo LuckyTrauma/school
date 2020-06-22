@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cestovné poistenie</title>
+</head>
+<p>
+<h1>Cestovné poistenie</h1>
+
+    <p th:text="'ID zmluvy: ' + ${insurance.InsuranceID}"></p>
+    <br>
+    <p th:text="'Dátum vzniku: ' + ${insurance.creationDate}"></p>
+    <br>
+    <p th:text="'ID poisťovateľa: ' + ${insurance.InsurerID}"></p>
+    <br>
+    <p th:text="'Datum zaciatku platnosti poistenia: ' + ${insurance.EffectiveBy}"></p>
+    <br>
+    <p th:text="'Datum konca platnosti poistenia: ' + ${insurance.ExpirationDate}"></p>
+    <br>
+    <p th:text="'Vyska poistky: ' + ${insurance.value}"></p>
+    <br>
+    <p th:text="'Mesacna splatka: ' + ${insurance.monthlyFee}"></p>
+    <br>
+    <p th:text="'ID poistenej osoby: ' + ${insurance.Insured}"></p>
+    <br>
+    <p th:text="'Cesta mimo EU: ' + ${insurance.EU}"></p>
+    <br>
+    <p th:text="'Ucel cestovania: ' + ${insurance.TravelTarget.getFocus()}"></p>
+    <br>
+
+<a th:href="'/products/edit/' + ${insurance.InsurerID} + '/' + ${insurance.InsuranceID}">Upraviť zmluvu</a>
+</body>
+</html>

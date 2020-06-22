@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nový používateľ</title>
+</head>
+<body>
+<a href="/client/list">Domov</a>
+<hr>
+
+<h1>Nový používateľ</h1>
+
+<form th:action="@{/client/add}" th:object="${clientResource}" method="post">
+    <label for="name">Meno</label>
+    <input type="text" id="name" th:field="*{name}"/>
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+    <br>
+
+    <label for="surname">Priezvisko</label>
+    <input type="text" id="surname" th:field="*{surname}"/>
+    <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>
+    <br>
+
+    <label for="birthNumber">Rodne cislo</label>
+    <input type="text" id="birthNumber" th:field="*{birth}"/>
+    <p th:if="${#fields.hasErrors('birth')}" th:errors="*{birth}"></p>
+    <br>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" th:field="*{email}"/>
+    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+    <br>
+
+    <h3>Adresa trvalého pobytu</h3>
+    <br>
+
+    <label for="ZIP">PSC</label>
+    <input type="number" id="ZIP" th:field="*{ZIP}"/>
+    <p th:if="${#fields.hasErrors('ZIP')}" th:errors="*{ZIP}"></p>
+    <br>
+
+    <label for="City">Obec</label>
+    <input type="text" id="City" th:field="*{City}"/>
+    <p th:if="${#fields.hasErrors('City')}" th:errors="*{City}"></p>
+    <br>
+
+    <label for="Street">Ulica</label>
+    <input type="text" id="Street" th:field="*{Street}"/>
+    <p th:if="${#fields.hasErrors('Street')}" th:errors="*{Street}"></p>
+    <br>
+
+    <label for="HouseNumber">Cislo domu</label>
+    <input type="number" id="HouseNumber" th:field="*{HouseNumber}"/>
+    <p th:if="${#fields.hasErrors('HouseNumber')}" th:errors="*{HouseNumber}"></p>
+    <br>
+
+    <h3>Korešpondenčná adresa</h3>
+    <p th:if="${crpAddressError} != null" th:text="${crpAddressError}"></p>
+    <br>
+
+    <label for="separateCrpAddress">Korespondencna adresa -> Ak je ina ako adresa trvaleho bydliska</label>
+    <input type="checkbox" id="separateCrpAddress" th:field="*{separateCrpAddress}"/>
+    <br>
+
+    <label for="crpAddressZip">PSC</label>
+    <input type="number" id="crpAddressZip" th:field="*{crpAddressZip}"/>
+    <p th:if="${#fields.hasErrors('crpAddressZip')}" th:errors="*{crpAddressZip}"></p>
+    <br>
+
+    <label for="crpAddressCity">Obec</label>
+    <input type="text" id="crpAddressCity" th:field="*{crpAddressCity}"/>
+    <p th:if="${#fields.hasErrors('crpAddressCity')}" th:errors="*{crpAddressCity}"></p>
+    <br>
+
+    <label for="crpAddressStreet">Ulica</label>
+    <input type="text" id="crpAddressStreet" th:field="*{crpAddressStreet}"/>
+    <p th:if="${#fields.hasErrors('crpAddressStreet')}" th:errors="*{crpAddressStreet}"></p>
+    <br>
+
+    <label for="crpAddressHouseNumber">Cilo domu</label>
+    <input type="number" id="crpAddressHouseNumber" th:field="*{crpAddressHouseNumber}"/>
+    <p th:if="${#fields.hasErrors('crpAddressHouseNumber')}" th:errors="*{crpAddressHouseNumber}"></p>
+    <br>
+
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

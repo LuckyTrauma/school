@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Úrazové poistenie</title>
+</head>
+<body>
+<h1>Úrazové poistenie - úpravy</h1>
+
+<form th:action="'/products/edit/injury'" th:object="${injuryInsuranceRes}" method="post">
+    <label for="id">ID zmluvy</label>
+    <input type="number" id="id" th:field="*{id}" readonly style="background-color: lightgray">
+    <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
+    <br>
+
+    <label for="id">ID zmluvy</label>
+    <input type="number" id="id" th:field="*{id}" readonly style="background-color: lightgray">
+    <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
+    <br>
+
+    <label for="creationDate">Vytvorenie zmluvy</label>
+    <input type="datetime-local" id="creationDate" th:field="*{dateOfCreation}" readonly style="background-color: lightgray">
+    <p th:if="${#fields.hasErrors('dateOfCreation')}" th:errors="*{dateOfCreation}"></p>
+    <br>
+
+    <label for="insurer">Poistovatel</label>
+    <input type="number" min="0" id="insurer" th:field="*{InsurerID}" readonly style="background-color: lightgray">
+    <p th:if="${#fields.hasErrors('InsurerID')}" th:errors="*{InsurerID}"></p>
+    <br>
+
+    <label for="effectiveby">Datum zaciatku platnosti poistenia</label>
+    <input type="date" id="effectiveby" th:field="*{EffectiveBy}">
+    <p th:if="${#fields.hasErrors('EffectiveBy')}" th:errors="*{EffectiveBy}"></p>
+    <br>
+
+    <label for="expirationdate">Dátum konca platnosti poistenia</label>
+    <input type="date" id="expirationdate" th:field="*{ExpirationDate}">
+    <p th:if="${#fields.hasErrors('ExpirationDate')}" th:errors="*{ExpirationDate}"></p>
+    <br>
+
+    <label for="insurancevalue">Vyska poistky</label>
+    <input type="number" step = "0.01" min="0" id="insurancevalue" th:field="*{InsuranceValue}">
+    <p th:if="${#fields.hasErrors('InsuranceValue')}" th:errors="*{InsuranceValue}"></p>
+    <br>
+
+    <label for="monthlyFee">Mesacna splatka</label>
+    <input type="number" step="0.01" min="0" id="monthlyFee" th:field="*{monthlyFee}">
+    <p th:if="${#fields.hasErrors('monthlyFee')}" th:errors="*{monthlyFee}"></p>
+    <br>
+    <label for="insuredId">ID poistenej osoby</label>
+    <input type="number" min="0" id="insuredId" th:field="*{Insured}" readonly style="background-color: lightgray">>
+    <p th:if="${#fields.hasErrors('Insured')}" th:errors="*{Insured}"></p>
+    <br>
+
+    <label for="PermanentInjury">Uraz -> Trvale nasledky</label>
+    <input type="number" min="0" step="0.01" id="PermanentInjury" th:field="*{PermanentInjury}">
+    <p th:if="${#fields.hasErrors('PermanentInjury')}" th:errors="*{PermanentInjury}"></p>
+    <br>
+
+    <label for="DeathInjury">Uraz -> Smrt</label>
+    <input type="number" min="0" step="0.01" id="DeathInjury" th:field="*{DeathInjury}">
+    <p th:if="${#fields.hasErrors('DeathInjury')}" th:errors="*{DeathInjury}"></p>
+    <br>
+
+    <label for="DailyHosp">Uraz -> Hospitalizacia</label>
+    <input type="number" min="0" step="0.01" id="DailyHosp" th:field="*{DailyHosp}">
+    <p th:if="${#fields.hasErrors('DailyHosp')}" th:errors="*{DailyHosp}"></p>
+    <br>
+
+    <label for="ValidityArea">Uzemna platnost</label>
+    <select name="validityArea" id="ValidityArea" th:field="*{ValidityArea}">
+        <option th:each="opt:${validityareaOptions}"
+                th:value="${opt}"
+                th:selected="${opt.equals(injuryInsuranceRes.getValidityArea())}"
+                th:text="${opt.getName()}"></option>
+    </select>
+    <p th:if="${#fields.hasErrors('ValidityArea')}" th:errors="*{ValidityArea}"></p>
+    <br>
+
+    <input type="submit" value="Submit">
+    <br>
+
+
+
+</form>
+</body>
+</html>

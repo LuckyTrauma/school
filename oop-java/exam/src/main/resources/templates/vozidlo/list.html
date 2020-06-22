@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoznam Vozidiel</title>
+</head>
+<body>
+
+<h1>Zoznam Vozidiel</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nazov</th>
+        <th>Narodnost</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vozidlo : ${listVozidiel}">
+        <td th:text="${vozidlo.idVozidla}"></td>
+        <td th:text="${vozidlo.nazov}"></td>
+        <td th:text="${vozidlo.narodnost}"></td>
+        <td><a th:href="'/vozidlo/detail/' + ${vozidlo.idVozidla}">Detail</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="'/komponent/list'">Zoznam komponentov</a>
+</body>
+</html>

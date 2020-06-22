@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Vozidla</title>
+</head>
+<body>
+
+<h1>Detail Vozidla</h1>
+<p th:text ="'ID :' + ${detailVozidla.idVozidla}"></p>
+<p th:text ="'Nazov :' + ${detailVozidla.nazov}"></p>
+<p th:text ="'Narodnost :' + ${detailVozidla.narodnost}"></p>
+<p th:text ="'Cena :' + ${detailVozidla.cena}"></p>
+<p th:text ="'Podvozok :' + ${detailVozidla.podvozok.toString()}"></p>
+<p th:text ="'Vyzbroj :' + ${detailVozidla.vyzbroj.toString()}"></p>
+
+
+</body>
+</html>

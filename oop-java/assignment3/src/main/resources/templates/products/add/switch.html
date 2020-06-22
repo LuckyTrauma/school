@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vyber zmluvy</title>
+</head>
+<body>
+<h1>Typ zmluvy:</h1>
+<ul>
+    <h3>Zivotne poistenie</h3>
+    <li>
+        <a th:href="'/products/add/travel/' + ${clientid}">Cestovne poistenie</a>
+    </li>
+    <li>
+        <a th:href="'/products/add/injury/' + ${clientid}">Urazove poistenie</a>
+    </li>
+    <h3>Nezivotne poistenie</h3>
+    <li>
+        <a th:href="'/products/add/home/' + ${clientid}">Poistenie domacnosti</a>
+    </li>
+    <li>
+        <a th:href="'/products/add/flat-house/' + ${clientid}">Poistenie domu a bytu</a>
+    </li>
+
+</ul>
+</body>
+</html>

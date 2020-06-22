@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoznam klientov</title>
+</head>
+<body>
+<h1>Zoznam klientov</h1>
+<a href="/client/add">Novy klient</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Meno</th>
+        <th>Priezvisko</th>
+        <th>email</th>
+        <th>Detail</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client: ${clients}">
+        <td th:text="${client.clientID}"></td>
+        <td th:text="${client.name}"></td>
+        <td th:text="${client.surname}"></td>
+        <td th:text="${client.email}"></td>
+        <td><a th:href="@{'/client/detail/' + ${client.clientID}}">Detail</a></td>
+        <td><a th:href="@{'/client/edit/' + ${client.clientID}}">Upraviť</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

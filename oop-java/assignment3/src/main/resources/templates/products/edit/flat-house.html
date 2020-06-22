@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Poistenie domu a bytu</title>
+</head>
+<body>
+<h1>Poistenie domu a bytu - úpravy</h1>
+
+<form th:action="'/products/edit/flat-house'" th:object="${flatHouseInsuranceRes}" method="post">
+    <label for="id">ID zmluvy</label>
+    <input type="number" id="id" th:field="*{id}" readonly style="background-color: lightgray">
+    <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
+    <br>
+
+    <label for="creationDate">Vytvorenie zmluvy</label>
+    <input type="datetime-local" id="creationDate" th:field="*{dateOfCreation}"readonly style="background-color: lightgray">
+    <p th:if="${#fields.hasErrors('dateOfCreation')}" th:errors="*{dateOfCreation}"></p>
+    <br>
+
+    <label for="insurer">Poistovatel</label>
+    <input type="number" min="0" id="insurer" th:field="*{InsurerID}" readonly style="background-color: lightgray">
+    <p th:if="${#fields.hasErrors('InsurerID')}" th:errors="*{InsurerID}"></p>
+    <br>
+
+    <label for="effectiveby">Datum zaciatku platnosti poistenia</label>
+    <input type="date" id="effectiveby" th:field="*{EffectiveBy}">
+    <p th:if="${#fields.hasErrors('EffectiveBy')}" th:errors="*{EffectiveBy}"></p>
+    <br>
+
+    <label for="expirationdate">Datum konca platnosti poistenia</label>
+    <input type="date" id="expirationdate" th:field="*{ExpirationDate}">
+    <p th:if="${#fields.hasErrors('ExpirationDate')}" th:errors="*{ExpirationDate}"></p>
+    <br>
+
+    <label for="insurancevalue">Vyska poistky</label>
+    <input type="number" step = "0.01" min="0" id="insurancevalue" th:field="*{InsuranceValue}">
+    <p th:if="${#fields.hasErrors('InsuranceValue')}" th:errors="*{InsuranceValue}"></p>
+    <br>
+
+    <label for="monthlyFee">Mesacna splatka</label>
+    <input type="number" step="0.01" min="0" id="monthlyFee" th:field="*{monthlyFee}">
+    <p th:if="${#fields.hasErrors('monthlyFee')}" th:errors="*{monthlyFee}"></p>
+    <br>
+
+    <label for="houseType">Typ nehnutelnosti</label>
+    <select name="houseType" id="houseType" th:field="*{HouseType}">
+        <option th:each="opt:${housetypeOptions}"
+                th:value="${opt}"
+                th:selected="${opt.equals(flatHouseInsuranceRes.getHouseType())}"
+                th:text="${opt.getName()}"></option>
+    </select>
+    <p th:if="${#fields.hasErrors('HouseType')}" th:errors="*{HouseType}"></p>
+    <br>
+
+    <h3>Adresa</h3>
+
+    <label for="propertyZip">PSC</label>
+    <input th:type="text" id="propertyZip" th:field="*{ZIP}">
+    <p th:if="${#fields.hasErrors('ZIP')}" th:errors="*{ZIP}"></p>
+    <br>
+
+    <label for="propertyCity">Obec</label>
+    <input th:type="text" id="propertyCity" th:field="*{City}">
+    <p th:if="${#fields.hasErrors('City')}" th:errors="*{City}"></p>
+    <br>
+
+    <label for="propertyStreet">Ulica</label>
+    <input th:type="text" id="propertyStreet" th:field="*{Street}">
+    <p th:if="${#fields.hasErrors('Street')}" th:errors="*{Street}"></p>
+    <br>
+
+    <label for="propertyHouseNumber">Cislo domu</label>
+    <input th:type="text" id="propertyHouseNumber" th:field="*{HouseNumber}">
+    <p th:if="${#fields.hasErrors('HouseNumber')}" th:errors="*{HouseNumber}"></p>
+    <br>
+    <br>
+
+    <label for="propertyValue">Hodnota nehnutelnosti</label>
+    <input type="number" step="0.01" min="0" id="propertyValue" th:field="*{HouseValue}">
+    <p th:if="${#fields.hasErrors('HouseValue')}" th:errors="*{HouseValue}"></p>
+    <br>
+
+    <label for="GarageInsurance">Poistenie garaze</label>
+    <input type="checkbox"id="GarageInsurance" th:field="*{GarageInsurance}">
+    <p th:if="${#fields.hasErrors('GarageInsurance')}" th:errors="*{GarageInsurance}"></p>
+    <br>
+
+    <input type="submit" value="Submit">
+    <br>
+
+</form>
+</body>
+</html>
